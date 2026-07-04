@@ -12,5 +12,9 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	// Custom domain — oss.stimmie.dev routes to this Worker
+	"routes": [
+		{ "pattern": "oss.stimmie.dev/*", "zone_name": "stimmie.dev" }
+	]
 }
