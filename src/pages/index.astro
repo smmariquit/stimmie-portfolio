@@ -1,0 +1,402 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+  { num: '149', label: 'Merged PRs', sub: 'uplbtools/room-tba alone' },
+  { num: '7+', label: 'Awesome Lists', sub: 'Room TBA nominated' },
+  { num: '4+', label: 'Orgs', sub: 'uplbtools · hostari · DEP · OSS PH' },
+  { num: '103', label: 'Followers', sub: 'github.com/smmariquit' },
+];
+
+const roomTbaHighlights = [
+  { icon: '🗺️', text: 'Owns full integration → production release pipeline' },
+  { icon: '🧩', text: 'Built contributor proposals platform with admin review queue' },
+  { icon: '🔔', text: 'Discord notifications for test suites and proposal reviews' },
+  { icon: '🧪', text: 'Playwright E2E, Vitest, Biome CI on GitHub Actions' },
+  { icon: '⚡', text: 'Shipped 15-issue batch: hover previews, dark mode, contributor profiles, keyboard shortcuts' },
+  { icon: '🔐', text: 'Auth hardening, rate limiting, prod login fixes' },
+  { icon: '♿', text: 'Lighthouse a11y audit and contrast fixes' },
+  { icon: '📡', text: 'MapTiler basemap tile injection and PGlite offline mode' },
+];
+
+const stack = ['Astro', 'SvelteKit', 'Drizzle ORM', 'PGlite', 'PostgreSQL', 'Playwright', 'Vitest', 'Bun', 'Vercel', 'GitHub Actions', 'MapLibre', 'TypeScript'];
+
+const awesomeLists = [
+  { name: 'maplibre/awesome-maplibre', url: 'https://github.com/maplibre/awesome-maplibre/pull/157', status: 'merged', label: '✅ Merged' },
+  { name: 'oven-sh/awesome-bun', url: 'https://github.com/oven-sh/awesome-bun/pull/157', status: 'open', label: '⏳ Open' },
+  { name: 'one-aalam/awesome-astro', url: 'https://github.com/one-aalam/awesome-astro/pull/108', status: 'open', label: '⏳ Open' },
+  { name: 'TheComputerM/awesome-svelte', url: 'https://github.com/TheComputerM/awesome-svelte/pull/216', status: 'open', label: '⏳ Open' },
+  { name: 'matthiasfeist/awesome-drizzle', url: 'https://github.com/matthiasfeist/awesome-drizzle/pull/3', status: 'open', label: '⏳ Open' },
+  { name: 'hemanth/awesome-pwa', url: 'https://github.com/hemanth/awesome-pwa/pull/429', status: 'open', label: '⏳ Open' },
+  { name: 'osmlab/awesome-openstreetmap', url: 'https://github.com/osmlab/awesome-openstreetmap/pull/200', status: 'open', label: '⏳ Open' },
+  { name: 'emmabostian/developer-portfolios', url: 'https://github.com/emmabostian/developer-portfolios/pull/3865', status: 'merged', label: '✅ Merged' },
+  { name: 'OSSPhilippines/awesome-pinoy-made', url: 'https://github.com/OSSPhilippines/awesome-pinoy-made/pull/41', status: 'open', label: '⏳ Open' },
+];
+
+const otherOrgs = [
+  {
+    org: 'Data Engineering Pilipinas',
+    repo: 'ogbinar/DataEngineeringPilipinas',
+    repoUrl: 'https://github.com/ogbinar/DataEngineeringPilipinas',
+    role: 'Contributor',
+    color: 'sky',
+    items: ['Added DEP Data Engineering Open Track to Programs page'],
+  },
+  {
+    org: 'Hostari',
+    repo: 'hostari/navegante_web + broocemq',
+    repoUrl: 'https://github.com/hostari/navegante_web',
+    role: 'Contributor',
+    color: 'amber',
+    items: [
+      'Managed database backups, restore & scheduling UI',
+      'Wal-G operation result reporting to Navegante',
+      'Postgres primary-replica failover primitives',
+      'PayRex PHP checkout integration',
+    ],
+  },
+  {
+    org: 'xdesro/personalsit.es',
+    repo: 'xdesro/personalsit.es',
+    repoUrl: 'https://github.com/xdesro/personalsit.es/pull/1501',
+    role: 'Listed',
+    color: 'green',
+    items: ['stimmie.dev added to the indie web personal sites directory'],
+  },
+];
+---
+
+<Layout>
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section id="hero" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="section-label">open source contributor</p>
+          <h1>
+            Hey, I'm <span class="grad">Stimmie</span>.
+          </h1>
+          <p class="hero-sub">
+            CS student at UP Los Baños. I build open-source tools for real people —
+            campus maps, data platforms, and infra primitives.
+            <br /><br />
+            <span class="mono" style="font-size:.8rem; color: var(--text-3)">// i hate linkedin</span>
+          </p>
+          <div class="hero-badges">
+            <span class="pill green"><span class="dot-pulse"></span> Open to GSoC</span>
+            <span class="pill accent">🇵🇭 Philippines</span>
+            <span class="pill">UP Los Baños</span>
+          </div>
+          <div class="hero-cta">
+            <a href="https://github.com/smmariquit" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github/smmariquit
+            </a>
+            <a href="https://joinpizza.fun" target="_blank" rel="noopener" class="btn btn-ghost">
+              stimmie.dev ↗
+            </a>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <div class="avatar-ring">
+            <img
+              src="https://avatars.githubusercontent.com/u/137183321?v=4"
+              alt="Stimmie's GitHub avatar"
+              width="160" height="160"
+            />
+          </div>
+          <div class="avatar-glow"></div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row reveal">
+        {stats.map(s => (
+          <div class="stat-card card">
+            <div class="stat-num">{s.num}</div>
+            <div style="font-weight:600; font-size:.95rem; margin: 6px 0 2px;">{s.label}</div>
+            <div style="font-size:.75rem; color: var(--text-3);">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- ─── ROOM TBA (featured project) ──────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label reveal">Featured Project</p>
+      <h2 class="reveal" style="margin-bottom: 8px;">Room TBA</h2>
+      <p class="reveal" style="margin-bottom: 40px; max-width: 560px;">
+        Map-first campus web app for UPLB — search rooms, schedules, jeepney routes, and events. Works offline as a PWA.
+      </p>
+
+      <div class="project-hero card reveal">
+        <div class="project-hero-top">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+              <span class="pill green">Maintainer</span>
+              <span class="pill">Production · uplbtools.me</span>
+            </div>
+            <h3 style="font-size:1.5rem; margin-bottom:8px;">149 merged PRs · 162 total</h3>
+            <p style="max-width:500px;">
+              Full-stack maintainer of a real-world, actively deployed campus app.
+              Owns the release pipeline, CI, contributor platform, and Discord integrations.
+            </p>
+          </div>
+          <div class="project-hero-links">
+            <a href="https://room-tba.uplbtools.me" target="_blank" rel="noopener" class="btn btn-primary">Open App ↗</a>
+            <a href="https://github.com/uplbtools/room-tba" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="highlight-grid">
+          {roomTbaHighlights.map(h => (
+            <div class="highlight-item">
+              <span class="highlight-icon">{h.icon}</span>
+              <span>{h.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="stack-row">
+          {stack.map(s => <span class="pill">{s}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- ─── OTHER CONTRIBUTIONS ───────────────────────────────── -->
+  <section id="contributions">
+    <div class="container">
+      <p class="section-label reveal">Beyond Room TBA</p>
+      <h2 class="reveal" style="margin-bottom: 40px;">Other Orgs</h2>
+
+      <div class="orgs-grid">
+        {otherOrgs.map((org, i) => (
+          <div class={`card reveal`} style={`animation-delay: ${i * 80}ms`}>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 16px;">
+              <div>
+                <h3 style="margin-bottom:4px;">{org.org}</h3>
+                <a href={org.repoUrl} target="_blank" rel="noopener" class="mono muted" style="font-size:.72rem;">{org.repo} ↗</a>
+              </div>
+              <span class={`pill ${org.color}`}>{org.role}</span>
+            </div>
+            <ul style="display:flex; flex-direction:column; gap:8px;">
+              {org.items.map(item => (
+                <li style="display:flex; gap:8px; align-items:flex-start; color: var(--text-2); font-size:.875rem;">
+                  <span style="color: var(--accent-2); flex-shrink:0;">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- ─── AWESOME LISTS ─────────────────────────────────────── -->
+  <section id="awesome-lists">
+    <div class="container">
+      <p class="section-label reveal">Community</p>
+      <h2 class="reveal" style="margin-bottom: 8px;">Awesome Lists</h2>
+      <p class="reveal" style="margin-bottom: 40px; max-width: 520px;">
+        Nominating Room TBA across the ecosystem — from MapLibre to Bun to OpenStreetMap.
+      </p>
+
+      <div class="awesome-grid reveal">
+        {awesomeLists.map(item => (
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener"
+            class="awesome-item card"
+          >
+            <div class="awesome-name mono">{item.name}</div>
+            <span class={`pill ${item.status === 'merged' ? 'green' : 'amber'}`}>{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- ─── GSoC CTA ──────────────────────────────────────────── -->
+  <section id="gsoc" style="padding-bottom: 100px;">
+    <div class="container">
+      <div class="gsoc-card card reveal">
+        <div class="gsoc-inner">
+          <div>
+            <span class="pill accent" style="margin-bottom:16px; display:inline-flex;">🌞 Google Summer of Code</span>
+            <h2 style="margin-bottom:12px;">Looking for GSoC 2027</h2>
+            <p style="max-width: 480px;">
+              I'm a maintainer-level contributor with production experience across full-stack web, CI/CD, mapping, and data platforms.
+              If you're a GSoC org looking for a motivated contributor — let's talk.
+            </p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px; flex-shrink:0;">
+            <a href="https://github.com/smmariquit" target="_blank" rel="noopener" class="btn btn-primary">
+              View GitHub Profile
+            </a>
+            <a href="mailto:smmariquit@up.edu.ph" class="btn btn-ghost">
+              smmariquit@up.edu.ph
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 60px;
+  }
+  .hero-text { flex: 1; }
+  .hero-sub {
+    margin: 24px 0;
+    font-size: 1.05rem;
+    max-width: 480px;
+    color: var(--text-2);
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Avatar */
+  .hero-avatar { position: relative; flex-shrink: 0; }
+  .avatar-ring {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--sky));
+    position: relative;
+    z-index: 1;
+  }
+  .avatar-ring img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .avatar-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+    z-index: 0;
+    animation: breathe 4s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: .6; transform: scale(1); }
+    50%       { opacity: 1;  transform: scale(1.08); }
+  }
+
+  /* Stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .stat-card { text-align: center; padding: 24px 16px; }
+
+  /* Project hero */
+  .project-hero { padding: 36px; }
+  .project-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .project-hero-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
+
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .875rem;
+    color: var(--text-2);
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+  .highlight-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .stack-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Orgs */
+  .orgs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  /* Awesome */
+  .awesome-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .awesome-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+  }
+  .awesome-name {
+    font-size: .78rem;
+    color: var(--text-2);
+    word-break: break-all;
+  }
+  .awesome-item:hover .awesome-name { color: var(--text); }
+
+  /* GSoC */
+  .gsoc-card {
+    background: linear-gradient(135deg, rgba(124,106,247,.08) 0%, rgba(56,189,248,.05) 100%);
+    border-color: rgba(124,106,247,.25);
+  }
+  .gsoc-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .highlight-grid { grid-template-columns: 1fr; }
+    .gsoc-inner { flex-direction: column; }
+  }
+  @media (max-width: 480px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
