@@ -2,60 +2,60 @@
 import '../styles/global.css';
 
 export interface Props {
-  title?: string;
-  description?: string;
+ title?: string;
+ description?: string;
 }
 
 const {
-  title = 'Stimmie — Open Source Dev',
-  description = 'Stimmie (smmariquit) — open source contributor at uplbtools, Data Engineering Pilipinas, and beyond. UPLB CS student building real things.',
+ title = 'Stimmie: Open Source Dev',
+ description = 'Stimmie (smmariquit): open source contributor at uplbtools, Data Engineering Pilipinas, and beyond. UPLB CS student building real things.',
 } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content="smmariquit" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#7c6af7" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <nav>
-      <a href="/" class="nav-logo">
-        <span>~/</span>stimmie
-      </a>
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#contributions">Contributions</a>
-        <a href="#awesome-lists">Awesome Lists</a>
-        <a href="https://github.com/smmariquit" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-    </nav>
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>{title}</title>
+ <meta name="description" content={description} />
+ <meta name="author" content="smmariquit" />
+ <meta property="og:title" content={title} />
+ <meta property="og:description" content={description} />
+ <meta property="og:type" content="website" />
+ <meta name="theme-color" content="#7c6af7" />
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ </head>
+ <body>
+ <nav>
+ <a href="/" class="nav-logo">
+ <span>~/</span>stimmie
+ </a>
+ <div class="nav-links">
+ <a href="#projects">Projects</a>
+ <a href="#contributions">Contributions</a>
+ <a href="#awesome-lists">Awesome Lists</a>
+ <a href="https://github.com/smmariquit" target="_blank" rel="noopener">GitHub ↗</a>
+ </div>
+ </nav>
 
-    <slot />
+ <slot />
 
-    <footer>
-      <p>Built with Astro · <a href="https://github.com/smmariquit" style="color: var(--accent-2)">smmariquit</a> · Philippines 🇵🇭</p>
-    </footer>
+ <footer>
+ <p>Built with Astro · <a href="https://github.com/smmariquit" style="color: var(, accent-2)">smmariquit</a> · Philippines 🇵🇭</p>
+ </footer>
 
-    <script>
-      // Scroll reveal
-      const els = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(el => io.observe(el));
-    </script>
-  </body>
+ <script>
+ // Scroll reveal
+ const els = document.querySelectorAll('.reveal');
+ const io = new IntersectionObserver((entries) => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.classList.add('visible');
+ io.unobserve(e.target);
+ }
+ });
+ }, { threshold: 0.1 });
+ els.forEach(el => io.observe(el));
+ </script>
+ </body>
 </html>
